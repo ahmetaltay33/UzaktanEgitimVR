@@ -19,6 +19,7 @@ public class LoginUiManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         SetUI(UITypes.Main);
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public void EnterClassroom_OnClick()
