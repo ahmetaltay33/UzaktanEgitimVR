@@ -3,18 +3,15 @@ using UnityEngine;
 
 public class LoginManager : MonoBehaviourPunCallbacks
 {
-    // Start is called before the first frame update
-    void Start()
+    /*public void ConnectToPhotonServer(string playerName)
     {
+        if (!string.IsNullOrWhiteSpace(playerName))
+        {
+            PhotonNetwork.NickName = playerName;
+        }
         PhotonNetwork.ConnectUsingSettings();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
     public override void OnConnected()
     {
         base.OnConnected();
@@ -24,6 +21,7 @@ public class LoginManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
-        Debug.Log("Ana sunucuya bağlantı kuruldu.");
-    }
+        Debug.Log($"Ana sunucuya bağlantı kuruldu. Oyuncu adı: {PhotonNetwork.NickName}");
+        PhotonNetwork.LoadLevel("Classroom");
+    }*/
 }
