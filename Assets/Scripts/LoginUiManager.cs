@@ -69,6 +69,7 @@ public class LoginUiManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log($"Ana sunucuya bağlantı kuruldu. Oyuncu adı: {PhotonNetwork.NickName}");
+        PhotonNetwork.JoinLobby();
         SetUI(UITypes.Room);
     }
 
