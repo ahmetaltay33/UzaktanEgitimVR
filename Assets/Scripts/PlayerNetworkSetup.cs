@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerNetworkSetup : MonoBehaviourPunCallbacks
 {
     public GameObject XRRigObject;
+    public GameObject MainAvatarObject;
     public GameObject AvatarHeadObject;
     public GameObject AvatarBodyObject;
 
@@ -20,6 +21,8 @@ public class PlayerNetworkSetup : MonoBehaviourPunCallbacks
             gameObject.GetComponent<PlayerMovementController>().enabled = true;
             SetLayerRecursively(AvatarBodyObject, 8);
             SetLayerRecursively(AvatarHeadObject, 9);
+
+            MainAvatarObject.AddComponent<AudioListener>();
         }
         else
         {
