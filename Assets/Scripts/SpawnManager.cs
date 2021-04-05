@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     GameObject GenericVRPlayerPrefab;
+    [SerializeField]
+    public List<VrChairManager> Chairs;
 
     public Vector3 SpawnPosition;
     
@@ -15,7 +17,12 @@ public class SpawnManager : MonoBehaviour
     {
         if (PhotonNetwork.IsConnectedAndReady)
         {
-            PhotonNetwork.Instantiate(GenericVRPlayerPrefab.name, SpawnPosition, Quaternion.identity);
+            var newPlayer = PhotonNetwork.Instantiate(GenericVRPlayerPrefab.name, SpawnPosition, Quaternion.identity);
+            // TODO: Sadece local playerda atamaların çalışması lazım. Her yeni oyuncu oyuna girdiğinde atama yapılırsa sandalyelerin sahibi en son oyuna katılan oyuncu olur. (Ahmet) 
+            foreach (var chair in Chairs)
+            {
+                chair.VrPlayer = newPlayer;
+            }
         }
     }
 
