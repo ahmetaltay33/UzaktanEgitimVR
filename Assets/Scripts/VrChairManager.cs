@@ -6,6 +6,7 @@ using UnityEngine;
 public class VrChairManager : MonoBehaviour
 {
     public GameObject VrPlayer;
+    public GameObject LookTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,15 @@ public class VrChairManager : MonoBehaviour
         if (VrPlayer != null)
         {
             Debug.Log(VrPlayer);
-            VrPlayer.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.25f, this.transform.position.z);
+            
+            VrPlayer.transform.position = new Vector3(this.transform.position.x + 0.16f, this.transform.position.y + 0.50f, this.transform.position.z);
+
+            var lookPos = LookTarget.transform.position - VrPlayer.transform.position;
+            lookPos.y = 0;
+            var rotation = Quaternion.LookRotation(lookPos);
+            Debug.Log("Rotating VR Player: " + rotation.eulerAngles);
+            VrPlayer.transform.rotation = Quaternion.Euler(rotation.eulerAngles);
+
             VrPlayer.GetComponent<PlayerMovementController>().enabled = false;
         }
     }
