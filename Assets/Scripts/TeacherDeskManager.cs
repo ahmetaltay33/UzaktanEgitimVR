@@ -1,4 +1,5 @@
 ﻿using TMPro;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -16,13 +17,18 @@ public class TeacherDeskManager : MonoBehaviour
     public GameObject panelMain;
     [SerializeField]
     public GameObject panelVideoPlayer;
+    [SerializeField] 
+    public TMP_InputField inputFieldVideoPlayer;
     [SerializeField]
-    public TextMeshProUGUI buttonPlayPauseText;
+    public TMP_Text buttonPlayPauseText;
+    [SerializeField]
+    public GameObject QuadVideoPlayer;
 
     private void Start()
     {
         panelMain.SetActive(true);
         panelVideoPlayer.SetActive(false);
+        QuadVideoPlayer.SetActive(false);
     }
 
     public void OnClick_ButtonOtur()
@@ -56,6 +62,9 @@ public class TeacherDeskManager : MonoBehaviour
     {
         panelMain.SetActive(false);
         panelVideoPlayer.SetActive(true);
+        QuadVideoPlayer.SetActive(true);
+        videoPlayer.url = inputFieldVideoPlayer.text;
+        OnClick_ButtonVideoPlayPause();
     }
     
     public void OnClick_ButtonVideoPlayPause()
@@ -84,6 +93,7 @@ public class TeacherDeskManager : MonoBehaviour
         buttonPlayPauseText.text = "Oynat";
         panelMain.SetActive(true);
         panelVideoPlayer.SetActive(false);
+        QuadVideoPlayer.SetActive(false);
     }
 
     public void OnClick_ButtonVideoForward()
