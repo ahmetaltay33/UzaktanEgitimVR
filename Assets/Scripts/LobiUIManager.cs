@@ -1,20 +1,20 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class LoginUiManager : MonoBehaviourPunCallbacks
+public class LobiUIManager : MonoBehaviourPunCallbacks
 {
     /// <summary>Giriş ekranında oluşacak durumları son kullanıcıya göstermek için kullanılır.</summary>
-    public Text txtCaption;
-    public Text txtAlert;
+    public TMP_Text TextCanliDersBaslik;
+    public TMP_Text TextCanliDersUyari;
 
-    public GameObject pnlMain;
-    public GameObject pnlConnect;
-    public GameObject pnlCreateOrJoinRoom;
-    public InputField inpPlayerName;
-    public InputField inpRoomId;
+    public GameObject PanelCanliDersAna;
+    public GameObject PanelCanliDersBaglan;
+    public GameObject PanelCanliDersOdayaKatil;
+    public TMP_InputField InputOyuncuAdi;
+    public TMP_InputField InputOdaNo;
 
     private void Start()
     {
@@ -22,41 +22,54 @@ public class LoginUiManager : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
-    public void EnterClassroom_OnClick()
+    public void ButtonCanliDers_OnClick()
     {
-        SetUI(UITypes.Connect);    
+        SetUI(UITypes.Connect);
     }
 
-    public void EnterLab_OnClick()
+    public void ButtonLab_OnClick()
     {
         SetUI(UITypes.Joining);
         SceneManager.LoadScene("LabScene");
     }
-    
-    public void Connect_OnClick()
+
+    public void ButtonCikis_OnClick()
     {
-        if (string.IsNullOrWhiteSpace(inpPlayerName.text))
+        Application.Quit();
+    }
+
+    public void ButtonCanliDersBaglan_OnClick()
+    {
+        if (string.IsNullOrWhiteSpace(InputOyuncuAdi.text))
         {
             ShowAlert("Kullanıcı Adı Girilmedi!");
             return;
         }
-        PhotonNetwork.NickName = inpPlayerName.text;
+
+        PhotonNetwork.NickName = InputOyuncuAdi.text;
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    public void ConnectBack_OnClick()
+    public void ButtonCanliDersVagec_OnClick()
     {
         SetUI(UITypes.Main);
     }
 
-    public void CreateOrJoinRoom_OnClick()
+    public void ButtonCanliDersOdaKatil_OnClick()
     {
-        if (string.IsNullOrWhiteSpace(inpRoomId.text))
+        if (string.IsNullOrWhiteSpace(InputOdaNo.text))
         {
             ShowAlert("Oda ID girilmedi!");
             return;
         }
-        JoinRoom(inpRoomId.text);
+
+        JoinRoom(InputOdaNo.text);
+    }
+    
+    public void ButtonCanliDersOdaVazgec_OnClick()
+    {
+        PhotonNetwork.Disconnect();
+        SetUI(UITypes.Connect);
     }
 
     #region PUN Callbacks
@@ -76,8 +89,8 @@ public class LoginUiManager : MonoBehaviourPunCallbacks
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         Debug.Log($"OnJoinRoomFailed, returnCode: {returnCode}, message: {message}");
-        CreateRoom(inpRoomId.text);
-        JoinRoom(inpRoomId.text);
+        CreateRoom(InputOdaNo.text);
+        JoinRoom(InputOdaNo.text);
     }
 
     public override void OnCreatedRoom()
@@ -118,14 +131,14 @@ public class LoginUiManager : MonoBehaviourPunCallbacks
 
     private void ShowAlert(string msg)
     {
-        txtAlert.text = msg;
-        txtAlert.gameObject.SetActive(true);
+        TextCanliDersUyari.text = msg;
+        TextCanliDersUyari.gameObject.SetActive(true);
     }
 
     private void CloseAlert()
     {
-        txtAlert.text = "";
-        txtAlert.gameObject.SetActive(false);
+        TextCanliDersUyari.text = "";
+        TextCanliDersUyari.gameObject.SetActive(false);
     }
 
     private enum UITypes
@@ -143,26 +156,28 @@ public class LoginUiManager : MonoBehaviourPunCallbacks
         {
             case UITypes.Main:
             {
-                txtCaption.text = "Ana Menü";
-                pnlMain.SetActive(true);
-                pnlConnect.SetActive(false);
-                pnlCreateOrJoinRoom.SetActive(false);
+                TextCanliDersBaslik.gameObject.SetActive(false);
+                PanelCanliDersAna.SetActive(true);
+                PanelCanliDersBaglan.SetActive(false);
+                PanelCanliDersOdayaKatil.SetActive(false);
             }
                 break;
             case UITypes.Connect:
             {
-                txtCaption.text = "İsminizi Giriniz";
-                pnlMain.SetActive(false);
-                pnlConnect.SetActive(true);
-                pnlCreateOrJoinRoom.SetActive(false);
+                TextCanliDersBaslik.text = "İsminizi Giriniz";
+                TextCanliDersBaslik.gameObject.SetActive(true);
+                PanelCanliDersAna.SetActive(false);
+                PanelCanliDersBaglan.SetActive(true);
+                PanelCanliDersOdayaKatil.SetActive(false);
             }
                 break;
             case UITypes.Room:
             {
-                txtCaption.text = "Oda Numarasını Giriniz";
-                pnlMain.SetActive(false);
-                pnlConnect.SetActive(false);
-                pnlCreateOrJoinRoom.SetActive(true);
+                TextCanliDersBaslik.text = "Oda Numarasını Giriniz";
+                TextCanliDersBaslik.gameObject.SetActive(true);
+                PanelCanliDersAna.SetActive(false);
+                PanelCanliDersBaglan.SetActive(false);
+                PanelCanliDersOdayaKatil.SetActive(true);
             }
                 break;
         }
