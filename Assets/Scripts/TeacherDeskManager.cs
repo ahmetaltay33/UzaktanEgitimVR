@@ -1,5 +1,4 @@
 ﻿using TMPro;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -22,13 +21,13 @@ public class TeacherDeskManager : MonoBehaviour
     [SerializeField]
     public TMP_Text buttonPlayPauseText;
     [SerializeField]
-    public GameObject QuadVideoPlayer;
+    public GameObject quadVideoPlayer;
 
     private void Start()
     {
         panelMain.SetActive(true);
         panelVideoPlayer.SetActive(false);
-        QuadVideoPlayer.SetActive(false);
+        quadVideoPlayer.SetActive(false);
     }
 
     public void OnClick_ButtonOtur()
@@ -36,7 +35,7 @@ public class TeacherDeskManager : MonoBehaviour
         if (vrPlayer != null)
         {
             var chairPos = chair.transform.position;
-            vrPlayer.transform.position = new Vector3(chairPos.x + 0.16f, chairPos.y + 0.50f, chairPos.z);
+            vrPlayer.transform.position = new Vector3(chairPos.x + 0.16f, Constants.PlayerSitedPositionY, chairPos.z);
 
             var lookPos = lookTarget.transform.position - vrPlayer.transform.position;
             lookPos.y = 0;
@@ -53,7 +52,7 @@ public class TeacherDeskManager : MonoBehaviour
         if (vrPlayer != null)
         {
             var chairPos = chair.transform.position;
-            vrPlayer.transform.position = new Vector3(chairPos.x + 1, chairPos.y + 0.25f, chairPos.z);
+            vrPlayer.transform.position = new Vector3(chairPos.x + 1, Constants.PlayerPositionY, chairPos.z);
             vrPlayer.GetComponent<PlayerMovementController>().enabled = true;
         }
     }
@@ -62,7 +61,7 @@ public class TeacherDeskManager : MonoBehaviour
     {
         panelMain.SetActive(false);
         panelVideoPlayer.SetActive(true);
-        QuadVideoPlayer.SetActive(true);
+        quadVideoPlayer.SetActive(true);
         videoPlayer.url = inputFieldVideoPlayer.text;
         OnClick_ButtonVideoPlayPause();
     }
@@ -93,7 +92,7 @@ public class TeacherDeskManager : MonoBehaviour
         buttonPlayPauseText.text = "Oynat";
         panelMain.SetActive(true);
         panelVideoPlayer.SetActive(false);
-        QuadVideoPlayer.SetActive(false);
+        quadVideoPlayer.SetActive(false);
     }
 
     public void OnClick_ButtonVideoForward()

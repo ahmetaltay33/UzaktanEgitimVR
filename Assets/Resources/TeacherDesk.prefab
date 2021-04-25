@@ -413,7 +413,7 @@ MonoBehaviour:
   panelVideoPlayer: {fileID: 1065407170664927669}
   inputFieldVideoPlayer: {fileID: 5213097606867351728}
   buttonPlayPauseText: {fileID: 6560821117900946700}
-  QuadVideoPlayer: {fileID: 1335850364010051712}
+  quadVideoPlayer: {fileID: 1335850364010051712}
 --- !u!1 &1335850364010051712
 GameObject:
   m_ObjectHideFlags: 0

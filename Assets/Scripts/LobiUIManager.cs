@@ -35,6 +35,7 @@ public class LobiUIManager : MonoBehaviourPunCallbacks
 
     public void ButtonCikis_OnClick()
     {
+        Debug.Log("Application.Quit() çalıştırıldı.");
         Application.Quit();
     }
 

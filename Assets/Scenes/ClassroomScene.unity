@@ -3297,7 +3297,7 @@ MonoBehaviour:
   - {fileID: 88008087}
   - {fileID: 1027202228}
   teacherDesk: {fileID: 257029919}
-  SpawnPosition: {x: 0, y: 0, z: -1.5}
+  SpawnPosition: {x: 4.955, y: 1, z: -1.744}
 --- !u!1001 &888512663
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class VrChairManager : MonoBehaviour
         {
             Debug.Log(VrPlayer);
             
-            VrPlayer.transform.position = new Vector3(this.transform.position.x + 0.16f, this.transform.position.y + 0.50f, this.transform.position.z);
+            VrPlayer.transform.position = new Vector3(this.transform.position.x + 0.16f, Constants.PlayerSitedPositionY, this.transform.position.z);
 
             var lookPos = LookTarget.transform.position - VrPlayer.transform.position;
             lookPos.y = 0;
@@ -44,7 +44,7 @@ public class VrChairManager : MonoBehaviour
         if (VrPlayer != null)
         {
             Debug.Log(VrPlayer);
-            VrPlayer.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y + 0.25f, this.transform.position.z);
+            VrPlayer.transform.position = new Vector3(this.transform.position.x + 1, Constants.PlayerPositionY, this.transform.position.z);
             VrPlayer.GetComponent<PlayerMovementController>().enabled = true;
         }
     }
