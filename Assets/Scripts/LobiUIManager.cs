@@ -9,17 +9,18 @@ public class LobiUIManager : MonoBehaviourPunCallbacks
     /// <summary>Giriş ekranında oluşacak durumları son kullanıcıya göstermek için kullanılır.</summary>
     public TMP_Text TextCanliDersBaslik;
     public TMP_Text TextCanliDersUyari;
-
+    public TMP_InputField InputOyuncuAdi;
+    public TMP_InputField InputOdaNo;
     public GameObject PanelCanliDersAna;
     public GameObject PanelCanliDersBaglan;
     public GameObject PanelCanliDersOdayaKatil;
-    public TMP_InputField InputOyuncuAdi;
-    public TMP_InputField InputOdaNo;
 
     private void Start()
     {
         SetUI(UITypes.Main);
         PhotonNetwork.AutomaticallySyncScene = true;
+        InputOyuncuAdi.text = PlayerPrefs.GetString(Constants.PlayerName);
+        InputOdaNo.text = PlayerPrefs.GetString(Constants.RoomId);
     }
 
     public void ButtonCanliDers_OnClick()
@@ -41,13 +42,14 @@ public class LobiUIManager : MonoBehaviourPunCallbacks
 
     public void ButtonCanliDersBaglan_OnClick()
     {
-        if (string.IsNullOrWhiteSpace(InputOyuncuAdi.text))
+        var playerName = InputOyuncuAdi.text;
+        if (string.IsNullOrWhiteSpace(playerName))
         {
             ShowAlert("Kullanıcı Adı Girilmedi!");
             return;
         }
-
-        PhotonNetwork.NickName = InputOyuncuAdi.text;
+        PlayerPrefs.SetString(Constants.PlayerName, playerName);
+        PhotonNetwork.NickName = playerName;
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -58,13 +60,14 @@ public class LobiUIManager : MonoBehaviourPunCallbacks
 
     public void ButtonCanliDersOdaKatil_OnClick()
     {
-        if (string.IsNullOrWhiteSpace(InputOdaNo.text))
+        var roomId = InputOdaNo.text;
+        if (string.IsNullOrWhiteSpace(roomId))
         {
             ShowAlert("Oda ID girilmedi!");
             return;
         }
-
-        JoinRoom(InputOdaNo.text);
+        PlayerPrefs.SetString(Constants.RoomId, roomId);
+        JoinRoom(roomId);
     }
     
     public void ButtonCanliDersOdaVazgec_OnClick()
