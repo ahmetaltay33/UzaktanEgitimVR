@@ -1,15 +1,19 @@
-﻿using TMPro;
+﻿using Photon.Pun;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class TeacherDeskManager : MonoBehaviour
 {
+    [Header("Runtime Adapting Objects")]
     [SerializeField]
     public GameObject vrPlayer;
     [SerializeField]
-    public GameObject lookTarget;
-    [SerializeField]
     public VideoPlayer videoPlayer;
+    
+    [Header("Design Time Adapting Objects")]
+    [SerializeField]
+    public GameObject lookTarget;
     [SerializeField]
     public GameObject chair;
     [SerializeField]
@@ -23,6 +27,8 @@ public class TeacherDeskManager : MonoBehaviour
     [SerializeField]
     public GameObject quadVideoPlayer;
 
+    private PhotonView photonView => PhotonView.Get(this);
+    
     private void Start()
     {
         panelMain.SetActive(true);
@@ -63,6 +69,7 @@ public class TeacherDeskManager : MonoBehaviour
         panelVideoPlayer.SetActive(true);
         quadVideoPlayer.SetActive(true);
         videoPlayer.url = inputFieldVideoPlayer.text;
+        photonView.RPC(nameof(RpcVideoUrl), RpcTarget.AllBuffered, inputFieldVideoPlayer.text);
         OnClick_ButtonVideoPlayPause();
     }
     
@@ -71,11 +78,13 @@ public class TeacherDeskManager : MonoBehaviour
         if (videoPlayer.isPlaying)
         {
             videoPlayer.Pause();
+            photonView.RPC(nameof(RpcVideoPause), RpcTarget.AllBuffered);            
             buttonPlayPauseText.text = "Oynat";
         }
         else
         {
             videoPlayer.Play();
+            photonView.RPC(nameof(RpcVideoPlay), RpcTarget.AllBuffered);            
             buttonPlayPauseText.text = "Duraklat";
         }
     }
@@ -83,12 +92,14 @@ public class TeacherDeskManager : MonoBehaviour
     public void OnClick_ButtonVideoStop()
     {
         videoPlayer.Stop();
+        photonView.RPC(nameof(RpcVideoStop), RpcTarget.AllBuffered);
         buttonPlayPauseText.text = "Oynat";
     }
 
     public void OnClick_ButtonVideoBack()
     {
         videoPlayer.Stop();
+        photonView.RPC(nameof(RpcVideoStop), RpcTarget.AllBuffered);
         buttonPlayPauseText.text = "Oynat";
         panelMain.SetActive(true);
         panelVideoPlayer.SetActive(false);
@@ -103,5 +114,33 @@ public class TeacherDeskManager : MonoBehaviour
     public void OnClick_ButtonVideoBackward()
     {
         Debug.Log("Video Backwarded.");
+    }
+
+    [PunRPC]
+    public void RpcVideoUrl(string url)
+    {
+        videoPlayer.url = url;
+        Debug.Log("RPC Video URL Değişti. URL: " + url);
+    }
+    
+    [PunRPC]
+    public void RpcVideoPlay()
+    {
+        videoPlayer.Play();
+        Debug.Log("RPC Video Oynatıldı.");
+    }
+    
+    [PunRPC]
+    public void RpcVideoPause()
+    {
+        videoPlayer.Pause();
+        Debug.Log("RPC Video Duraklatıldı.");
+    }
+    
+    [PunRPC]
+    public void RpcVideoStop()
+    {
+        videoPlayer.Stop();
+        Debug.Log("RPC Video Durduruldu.");
     }
 }

@@ -406,8 +406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrPlayer: {fileID: 0}
-  lookTarget: {fileID: 1231139377073700286}
   videoPlayer: {fileID: 0}
+  lookTarget: {fileID: 1231139377073700286}
   chair: {fileID: 1230517663721119782}
   panelMain: {fileID: 4166887176380763738}
   panelVideoPlayer: {fileID: 1065407170664927669}
