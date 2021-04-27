@@ -145,13 +145,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9446422}
-  m_LocalRotation: {x: -0.4265961, y: 0.80999565, z: -0.3988356, w: 0.053412847}
+  m_LocalRotation: {x: -0.3672302, y: 0.38607115, z: -0.81615597, w: -0.2235631}
   m_LocalPosition: {x: 15.88705, y: 2.7972975, z: -0.11233625}
   m_LocalScale: {x: 0.4552802, y: 0.45528007, z: 0.45528015}
   m_Children: []
   m_Father: {fileID: 115297955}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -65.982, y: -47.523003, z: -51.627003}
+  m_LocalEulerAnglesHint: {x: 52.597004, y: -315.358, z: -187.69899}
 --- !u!108 &9446424
 Light:
   m_ObjectHideFlags: 0
@@ -967,11 +967,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextCanliDersBaslik: {fileID: 601393772}
   TextCanliDersUyari: {fileID: 1668278294}
+  InputOyuncuAdi: {fileID: 1362016904}
+  InputOdaNo: {fileID: 1302168005}
   PanelCanliDersAna: {fileID: 999255658}
   PanelCanliDersBaglan: {fileID: 276151393}
   PanelCanliDersOdayaKatil: {fileID: 880672393}
-  InputOyuncuAdi: {fileID: 1362016904}
-  InputOdaNo: {fileID: 1302168005}
 --- !u!4 &359448152
 Transform:
   m_ObjectHideFlags: 0
