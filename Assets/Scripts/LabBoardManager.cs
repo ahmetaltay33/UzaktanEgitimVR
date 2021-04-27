@@ -35,7 +35,7 @@ public class LabBoardManager: MonoBehaviour
     private RawImage rawImage;
     [SerializeField] 
     private VideoPlayer videoPlayer;
-    
+
     private List<MicrochipDto> microChips;
     private int totalData;
     private int activeDataIndex;
@@ -51,7 +51,7 @@ public class LabBoardManager: MonoBehaviour
                 Details = "USB 2.0 on-board programmer and debugger\n" +
                           "Board üzerindeki USB 2.0 destekli ST-LINK v2 programlama arabirimi, ilave bir programlayıcıya ihtiyaç duymadan ve ARM entegresini devre üzerinden sökmeden programlama imkanı sağlamaktadır. Programlayıcı sayesinde ana mikrodenetleyiciyi programlayabilir ve değişken değerleri görebilirsiniz. (Special Function Register, RAM, CODE ve EEPROM)",
                 ImageUrl = "https://www.yildirimelektronik.com/urun/buyuk/8315e5d7-40c4-4e08-a2c1-6cdf21e7a941.jpg",
-                VideoUrl = "https://unity3dcollege.blob.core.windows.net/site/YTDownloads/test.mp4​"
+                VideoUrl = "https://unity3dcollege.blob.core.windows.net/site/YTDownloads/test.mp4"
             },
             new MicrochipDto
             {
@@ -66,7 +66,7 @@ public class LabBoardManager: MonoBehaviour
                           "DS1820 ve LM35 Sıcaklık Sensörleri\n"+
                           "Kalem",
                 ImageUrl = "https://www.yildirimelektronik.com/urun/buyuk/05a12465-a923-4878-9ddf-0988f76dd830.jpg",
-                VideoUrl = "https://unity3dcollege.blob.core.windows.net/site/YTDownloads/test.mp4​"
+                VideoUrl = "https://unity3dcollege.blob.core.windows.net/site/YTDownloads/test.mp4"
             },
             new MicrochipDto
             {
@@ -78,7 +78,7 @@ public class LabBoardManager: MonoBehaviour
                           "kolaylık sağlamak olarak özetlenebilir. NodeMCU Uygulama Kartı üzerinde farklı donanımlar modüller haline " +
                           "getirilmiş ve her bir modülü aktif veya pasif edebilmek amacıyla bir modül seçme anahtarı eklenmiştir.",
                 ImageUrl = "https://www.yildirimelektronik.com/urun/buyuk/10d53adc-b061-430e-a8bf-6dc820dd1469.jpg",
-                VideoUrl = "https://unity3dcollege.blob.core.windows.net/site/YTDownloads/test.mp4​"
+                VideoUrl = "https://unity3dcollege.blob.core.windows.net/site/YTDownloads/test.mp4"
             }
         };
     }
@@ -123,29 +123,6 @@ public class LabBoardManager: MonoBehaviour
         panelContent.SetActive(uiType == UIType.Content);
         panelDetailedText.SetActive(uiType == UIType.Detail);
         panelVideo.SetActive(uiType == UIType.Video);
-        switch (uiType)
-        {
-            case UIType.Main:
-            {
-                                
-                break;
-            }
-            case UIType.Content:
-            {
-                
-                break;
-            }
-            case UIType.Detail:
-            {
-                
-                break;
-            }
-            case UIType.Video:
-            {
-                
-                break;
-            }
-        }        
     }
     
     public void Board_ButtonStart_OnClick()
@@ -202,10 +179,10 @@ public class LabBoardManager: MonoBehaviour
 
     public void Video_ButtonPlayPause_OnClick()
     {
-        if(videoPlayer.isPaused)
-            videoPlayer.Play();
-        else
+        if(videoPlayer.isPlaying)
             videoPlayer.Pause();
+        else
+            videoPlayer.Play();
     }
 
     public void Video_ButtonStop_OnClick()
