@@ -1,10 +1,16 @@
 # UzaktanEgitimVR
 Uzaktan Eğitim Sisteminin Sanal Gerçeklik ile Gerçekleştirimi
 
-![image](https://user-images.githubusercontent.com/46381367/115259164-4d2e7f00-a13a-11eb-9452-31444bc9195b.png)
+Lobi
+![image](https://user-images.githubusercontent.com/46381367/116292079-f9591100-a79d-11eb-85f4-523f37355bd0.png)
 
-![image](https://user-images.githubusercontent.com/46381367/115259336-764f0f80-a13a-11eb-8847-574ebd01ac82.png)
+Canlı Ders Girişi
+![image](https://user-images.githubusercontent.com/46381367/116292204-1b529380-a79e-11eb-946e-3640f2f891ef.png)
 
-![image](https://user-images.githubusercontent.com/46381367/115259434-8f57c080-a13a-11eb-91ba-5e82d2a948a5.png)
+Canlı Ders Sınıfı
+![image](https://user-images.githubusercontent.com/46381367/116292353-45a45100-a79e-11eb-9e35-2963c269bbc1.png)
 
-![image](https://user-images.githubusercontent.com/46381367/115259589-b1514300-a13a-11eb-9257-33677c480b5f.png)
+Mikroişlemciler Laboratuvarı
+![image](https://user-images.githubusercontent.com/46381367/116292464-69679700-a79e-11eb-96e4-dc8f417fa9c7.png)
+
+![image](https://user-images.githubusercontent.com/46381367/116292585-8ac88300-a79e-11eb-8bbb-9287650a6514.png)
