@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -35,6 +34,12 @@ public class LabBoardManager: MonoBehaviour
     private RawImage rawImage;
     [SerializeField] 
     private VideoPlayer videoPlayer;
+    [SerializeField] 
+    private Button buttonVideoPlayPause;
+    [SerializeField] 
+    private Sprite spriteVideoPlay;
+    [SerializeField] 
+    private Sprite spriteVideoPause;
 
     private List<MicrochipDto> microChips;
     private int totalData;
@@ -123,6 +128,7 @@ public class LabBoardManager: MonoBehaviour
         panelContent.SetActive(uiType == UIType.Content);
         panelDetailedText.SetActive(uiType == UIType.Detail);
         panelVideo.SetActive(uiType == UIType.Video);
+        buttonVideoPlayPause.image.sprite = spriteVideoPause;
     }
     
     public void Board_ButtonStart_OnClick()
@@ -179,14 +185,32 @@ public class LabBoardManager: MonoBehaviour
 
     public void Video_ButtonPlayPause_OnClick()
     {
-        if(videoPlayer.isPlaying)
+        if (videoPlayer.isPlaying)
+        {
             videoPlayer.Pause();
+            buttonVideoPlayPause.image.sprite = spriteVideoPlay;
+        }
         else
+        {
             videoPlayer.Play();
+            buttonVideoPlayPause.image.sprite = spriteVideoPause;
+        }
     }
 
     public void Video_ButtonStop_OnClick()
     {
         videoPlayer.Stop();
+        videoPlayer.frame = 0;
+        buttonVideoPlayPause.image.sprite = spriteVideoPlay;
+    }
+    
+    public void Video_ButtonForward_OnClick()
+    {
+        videoPlayer.frame += 27 * 10;
+    }
+    
+    public void Video_ButtonBackward_OnClick()
+    {
+        videoPlayer.frame -= 27 * 10;
     }
 }

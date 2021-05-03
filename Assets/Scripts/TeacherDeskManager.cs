@@ -108,39 +108,35 @@ public class TeacherDeskManager : MonoBehaviour
 
     public void OnClick_ButtonVideoForward()
     {
-        Debug.Log("Video Forwarded.");
+        videoPlayer.frame += 27 * 10;
     }
     
     public void OnClick_ButtonVideoBackward()
     {
-        Debug.Log("Video Backwarded.");
+        videoPlayer.frame -= 27 * 10;
     }
 
     [PunRPC]
     public void RpcVideoUrl(string url)
     {
         videoPlayer.url = url;
-        Debug.Log("RPC Video URL Değişti. URL: " + url);
     }
     
     [PunRPC]
     public void RpcVideoPlay()
     {
         videoPlayer.Play();
-        Debug.Log("RPC Video Oynatıldı.");
     }
     
     [PunRPC]
     public void RpcVideoPause()
     {
         videoPlayer.Pause();
-        Debug.Log("RPC Video Duraklatıldı.");
     }
     
     [PunRPC]
     public void RpcVideoStop()
     {
         videoPlayer.Stop();
-        Debug.Log("RPC Video Durduruldu.");
     }
 }
