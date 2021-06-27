@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MicPermissionHelper">
+    <Position X="4" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\MicPermissionHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LobiUIManager">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="LobiUIManager.UITypes">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\LobiUIManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAA0ACCGBEAAAIAEAAAIAAhEAAATIAEAAAAMAAMUA=</HashCode>
+      <FileName>Assets\Scripts\LobiUIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

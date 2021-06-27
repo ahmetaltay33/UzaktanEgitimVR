@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LabUIManager">
+    <Position X="4.75" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LabUIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MicrochipDto">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAgABAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LabBoardManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LabBoardManager">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <NestedTypes>
+      <Enum Name="LabBoardManager.UIType">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\LabBoardManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AkRSAAABESAEAABACICAAAAAMAQMACBAAAoEAmAACQA=</HashCode>
+      <FileName>Assets\Scripts\LabBoardManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MicrochipDto" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

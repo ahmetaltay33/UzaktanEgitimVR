@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VirtualWorldManager">
+    <Position X="6" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAEAAAAAAAAAAAAAAAAAAAACEQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\VirtualWorldManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpawnManager">
+    <Position X="6" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAACAAAAAAAAQAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SpawnManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeacherDeskManager">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AADAABoEACCESAAABIACgAAAAEAAAAIAAAAIAASBAFA=</HashCode>
+      <FileName>Assets\Scripts\TeacherDeskManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VrChairManager">
+    <Position X="3.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ACQCAAAAACAAAAAAAEAAAAAAAIAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\VrChairManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClassroomUIManager">
+    <Position X="3.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ClassroomUIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
